@@ -55,6 +55,35 @@
       "validators": ["number", "required"],
       "help": "How many items are selectable"
     },
+     "_choices": {
+      "type":"array",
+      "required":true,
+      "title": "Choices",
+      "choices": {
+        "type":"object",
+        "required":true,
+        "properties":{
+          "text": {
+            "type":"string",
+            "required":true,
+            "default": "",
+            "title": "Item Text",
+            "inputType": "Text",
+            "validators": ["required"],
+            "help": "This text will display as the item text"
+          },
+          "_value": {
+            "type":"number",
+            "required":true,
+            "default": 0,
+            "title": "Value",
+            "inputType": "Number",
+            "validators": [],
+            "help": "Set this item to '0' or '1'"
+          }
+        }
+      }
+    },
     "_items": {
       "type":"array",
       "required":true,
