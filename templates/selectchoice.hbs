@@ -1,0 +1,34 @@
+<div class="selectchoice-inner component-inner">
+    {{> component this}}
+        <div class="selectchoice-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
+         <div class="selectchoice-head">
+        <div class="selectchoice-title">
+            <span>{{title}}</span>
+        </div>
+        {{#each _choices}}
+        
+        <div class="selectchoice-option">
+           {{{text}}} 
+        </div>
+        {{/each}}
+       </div>
+  
+        {{#each _items}}
+        <div class="selectchoice-item component-item component-item-color {{#unless ../_isEnabled}} {{#if correct}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}}">
+            <label  class="component-item-text-color component-item-border{{#if selected}}selected{{/if}}">
+               
+                <span class="">
+                    {{{text}}}
+                </span>
+            </label>
+            <div class="selectchoice-option">
+           <input  type="radio" class="rtrue" name="{{../_id}}-{{@index}}" id="{{../_id}}-{{@index}}-0" /></div>
+           <div class="selectchoice-option">
+            <input type="radio" class="rfalse" name="{{../_id}}-{{@index}}" id="{{../_id}}-{{@index}}-1"/></div>
+        </div>
+        {{/each}}
+        <div class="buttons">
+            {{> buttons this}}
+        </div>
+    </div>
+</div>

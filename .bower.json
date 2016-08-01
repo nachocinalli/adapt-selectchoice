@@ -1,0 +1,27 @@
+{
+  "name": "adapt-contrib-selectchoice",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    ""
+  ],
+  "displayName": "Select Choice Question",
+  "component": "selectchoice",
+  "description": "A multiple choice question component",
+  "main": "/js/adapt-contrib-selectchoice.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "631a5a2a5a5a63c1960f9fb7e67dfd0cf796d18b"
+  },
+  "_source": "",
+  "_target": "~0.0.1",
+  "_originalSource": "adapt-contrib-selectchoice",
+  "_direct": true
+}

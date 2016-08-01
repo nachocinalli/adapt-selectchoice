@@ -1,0 +1,60 @@
+{
+	"_id": "c-105",
+	"_parentId": "b-55",
+	"_type": "component",
+	"_component": "selectchoice",
+	"_classes": "",
+	"_layout": "left",
+	"_attempts": 1,
+	"_questionWeight": 1,
+	"_isRandom": false,
+	"_selectable": 1,
+	"title": "SelectChoice",
+	"displayTitle": "SelectChoice",
+	"body": "True or False?",
+	"instruction": "",
+	"_selectable": 5,
+	"_choices": [{
+		"text": "TRUE",
+		"_value": 0
+	}, {
+		"text": "FALSE",
+		"_value": 1
+	}],
+	"_items": [{
+		"text": "Question 1",
+		"_shouldBeSelected": 0
+	}, {
+		"text": "Question 2",
+		"_shouldBeSelected": 1
+	}, {
+		"text": "Question 3",
+		"_shouldBeSelected": 1
+	}, {
+		"text": "Question 4",
+		"_shouldBeSelected": 0
+	}, {
+		"text": "Question 5",
+		"_shouldBeSelected": 0
+	}],
+	"_feedback": {
+		"correct": "Congratulations, this is the correct feedback.",
+		"_incorrect": {
+			"notFinal": "",
+			"final": "This feedback will appear if you answered the question incorrectly."
+		},
+		"_partlyCorrect": {
+			"notFinal": "",
+			"final": "This feedback will appear if you answered part of the question correctly."
+		}
+	},
+	"_buttons": {
+		"submit": "",
+		"reset": "",
+		"showCorrectAnswer": "",
+		"hideCorrectAnswer": ""
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": true
+	}
+}

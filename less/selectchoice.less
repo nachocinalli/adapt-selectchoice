@@ -1,0 +1,191 @@
+.selectchoice-component {
+  
+    .selectchoice-head {
+        position: relative;
+        padding-left: 0
+    }
+    .selectchoice-title {
+        span {
+            padding-left: 5px;
+            text-transform: uppercase;
+            color: #333;
+            font-weight: 600;
+        }
+        @media all and (min-width:(@device-width-medium + 1px)) {
+            float: left;
+            width: 70%;
+            text-align: left;
+            span {
+                padding-left: 0;
+                text-transform: uppercase;
+            }
+            padding-top: 0;
+        }
+        float: none;
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .first {
+        border: none !important;
+        background-color: transparent !important;
+    }
+    .selectchoice-option {
+        display: inline-block;
+        text-align: center;
+        width: 49%;
+        border-left: none;
+       
+        @media all and (min-width:(@device-width-medium + 1px)) {
+            width: 14%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-left: 1px solid #ccc;
+            height: 50px;
+        }
+    }
+    .selectchoice-item {
+        position: relative;
+        padding-top: 20px;
+        padding-left: 0;
+        @media all and (min-width: (@device-width-medium + 1px)) {
+           
+            padding-top: 0;
+        }
+    }
+    .selectchoice-item label {
+        span {
+            padding-left: 5px;
+            height: 50px;
+        }
+        color: @primary-color;
+        width: 100%;
+        float: none;
+        display: block;
+        z-index: 1;
+      
+        overflow: hidden;
+        cursor: auto;
+        text-align: left;
+        @media all and (min-width:(@device-width-medium + 1px)) {
+            span {
+                padding-left: 2px;
+                height: 50px;
+            }
+            float: left;
+            width: 70%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            background-color: transparent;
+        }
+        .selectchoice-answer-icon {
+            color: @item-text-color;
+            &:before {
+                content: "\e65e";
+            }
+        }
+       
+    }
+    .selectchoice-item-inner {
+        padding: @item-padding;
+        padding: @item-padding;
+        padding-left: (@icon-size+(@item-padding-left*2));
+    }
+    .selectchoice-item input {
+        /*position:absolute;
+        top:14px;
+        left:14px;*/
+        // float: left;
+        vertical-align: middle;
+    }
+    .selectchoice-correct-icon {
+        color: @icon-correct-color;
+        display: none;
+    }
+    .selectchoice-incorrect-icon {
+        color: @icon-incorrect-color;
+        display: none;
+    }
+    .selectchoice-item-state {
+        /*background: none;
+        position: absolute;
+        left: 10px;
+        width: @icon-size;
+        height: @icon-size;
+        top: 50%;
+        margin-top: -(@icon-size/2);
+        z-index: 0;*/
+    }
+    .selectchoice-widget {
+        &.user {
+            .selectchoice-item-icon {
+                display: none;
+            }
+            .incorrect {
+                .selected .selectchoice-incorrect-icon {
+                    display: block;
+                }
+            }
+            .correct {
+                .selected .selectchoice-correct-icon {
+                    display: block;
+                }
+            }
+        }
+        &.model {
+            .selectchoice-item-icon {
+                display: none;
+            }
+            .selected .selectchoice-correct-icon {
+                display: block;
+            }
+        }
+        &.disabled {
+            .selectchoice-item label.selected.disabled {
+                color: #666;
+              
+                border-color: transparent;
+            }
+            .selectchoice-item label.disabled {
+                color: #666;
+               
+                border-color: transparent;
+            }
+            .selectchoice-item.correct .selected .state {
+                color: @icon-correct-color;
+            }
+            .selectchoice-item.incorrect .selected .state {
+                color: @icon-incorrect-color;
+            }
+        }
+    }
+    .buttons {
+        clear: both;
+        text-align: center;
+    }
+}
+
+.no-touch {
+    .selectchoice-component {
+        .selectchoice-widget {
+            &:not(.disabled) {
+                .selectchoice-item label:hover {
+                    color: @primary-color;;
+                    background-color: transparent;
+                    border-color: transparent;
+                }
+                .selectchoice-item label.disabled {
+                    color: @primary-color;;
+                    background-color: transparent;
+                    border-color: transparent;
+                    cursor: default;
+                    &:hover {
+                        color: @primary-color;;
+                        background-color: transparent;
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
