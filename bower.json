@@ -1,5 +1,5 @@
 {
-  "name": "adapt-contrib-selectchoice",
+  "name": "adapt-selectchoice",
   "version": "0.0.1",
   "homepage": "",
   "authors": [
@@ -8,7 +8,7 @@
   "displayName" : "Select Choice Question",
   "component" : "selectchoice",
   "description": "A multiple choice question component",
-  "main": "/js/adapt-contrib-selectchoice.js",
+  "main": "/js/adapt-selectchoice.js",
   "keywords": [
     "adapt-plugin",
     "adapt-component"
