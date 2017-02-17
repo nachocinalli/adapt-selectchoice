@@ -249,14 +249,10 @@ define(function(require) {
         },
 
         getResponse:function() {
-            var selectedIndexes = _.map(this.model.get('_customUserAnswer'),function(element,index){ return (index+1)+"."+$("#"+element.selectedId).attr("alt") }); 
-           console.log("selectedIndexes",selectedIndexes)
-            //var selectedIndexes = _.pluck(selected, 'selectedId');
-           //  _.map(selectedIndexes, function(element){ return $('element').attr("alt") });
-            // indexes are 0-based, we need them to be 1-based for cmi.interactions
-           /*for (var i = 0, count = selectedIndexes.length; i < count; i++) {
-                selectedIndexes[i]++;
-            }*/
+            var selectedIndexes = _.map(this.model.get('_customUserAnswer'),function(element,index)
+            { 
+                return (index+1)+"."+$("#"+element.selectedId.attr("alt"))
+            })
             return selectedIndexes.join(',');
         },
         

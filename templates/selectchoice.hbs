@@ -5,18 +5,15 @@
         <div class="selectchoice-title">
             <span>{{title}}</span>
         </div>
-        {{#each _choices}}
-        
+        {{#each _choices}}        
         <div class="selectchoice-option">
            {{{text}}} 
         </div>
         {{/each}}
-       </div>
-  
+       </div>  
         {{#each _items}}
         <div class="selectchoice-item component-item component-item-color {{#unless ../_isEnabled}} {{#if correct}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}}">
-            <label  class="component-item-text-color component-item-border{{#if selected}}selected{{/if}}">
-               
+            <label  class="component-item-text-color component-item-border{{#if selected}}selected{{/if}}">               
                 <span class="">
                     {{{text}}}
                 </span>
