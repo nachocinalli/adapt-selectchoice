@@ -8,7 +8,6 @@
 	"_attempts": 1,
 	"_questionWeight": 1,
 	"_isRandom": false,
-	"_selectable": 1,
 	"title": "SelectChoice",
 	"displayTitle": "SelectChoice",
 	"body": "True or False?",

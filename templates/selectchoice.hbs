@@ -2,30 +2,40 @@
     {{> component this}}
         <div class="selectchoice-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
          <div class="selectchoice-head">
-        <div class="selectchoice-title">
-            <span>{{title}}</span>
+        <div class="selectchoice-label">
+          <span>&nbsp;</span>
         </div>
+         <div class="selectchoice-option-inner">
         {{#each _choices}}        
         <div class="selectchoice-option">
            {{{text}}} 
         </div>
         {{/each}}
+         </div>
        </div>  
         {{#each _items}}
         <div class="selectchoice-item component-item component-item-color {{#unless ../_isEnabled}} {{#if correct}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}}">
-            <label  class="component-item-text-color component-item-border{{#if selected}}selected{{/if}}">               
-                <span class="">
+            <label class="component-item-text-color {{#if selected}}selected{{/if}}">               
+                
+                <div class="selectchoice-item-state">
+                   
+                    <div class="selectchoice-item-icon selectchoice-correct-icon icon icon-tick"></div>
+                    <div class="selectchoice-item-icon selectchoice-incorrect-icon icon icon-cross"></div>
+                </div>
+                 <div class="selectchoice-item-inner">
                     {{{text}}}
-                </span>
+                </div>
             </label>
+            <div class="selectchoice-option-inner">
+             {{#each ../_choices}}       
             <div class="selectchoice-option">
-           <input  type="radio" class="rtrue" name="{{../_id}}-{{@index}}" id="{{../_id}}-{{@index}}-0" alt="{{../_choices.0.text}}" /></div>
-           <div class="selectchoice-option">
-            <input type="radio" class="rfalse" name="{{../_id}}-{{@index}}" id="{{../_id}}-{{@index}}-1" alt="{{../_choices.1.text}}" /></div>
+                <input  type="radio" class="selectchoice-option-input" data-choice="{{_value}}" name="{{../../_id}}-item-{{@../index}}" id="{{../../_id}}-{{@../index}}-{{_value}}" alt="{{text}}" aria-label="{{a11y_normalize text}}"/>
+           </div>
+             {{/each}}
+            </div>
+              
         </div>
         {{/each}}
-        <div class="buttons">
-            {{> buttons this}}
-        </div>
+        <div class="buttons"></div>
     </div>
 </div>
