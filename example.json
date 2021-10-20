@@ -1,59 +1,99 @@
 {
-	"_id": "c-105",
-	"_parentId": "b-55",
-	"_type": "component",
-	"_component": "selectchoice",
-	"_classes": "",
-	"_layout": "left",
-	"_attempts": 1,
-	"_questionWeight": 1,
-	"_isRandom": false,
-	"title": "SelectChoice",
-	"displayTitle": "SelectChoice",
-	"body": "True or False?",
-	"instruction": "",
-	"_selectable": 5,
-	"_choices": [{
-		"text": "TRUE",
-		"_value": 0
-	}, {
-		"text": "FALSE",
-		"_value": 1
-	}],
-	"_items": [{
-		"text": "Question 1",
-		"_shouldBeSelected": 0
-	}, {
-		"text": "Question 2",
-		"_shouldBeSelected": 1
-	}, {
-		"text": "Question 3",
-		"_shouldBeSelected": 1
-	}, {
-		"text": "Question 4",
-		"_shouldBeSelected": 0
-	}, {
-		"text": "Question 5",
-		"_shouldBeSelected": 0
-	}],
-	"_feedback": {
-		"correct": "Congratulations, this is the correct feedback.",
-		"_incorrect": {
-			"notFinal": "",
-			"final": "This feedback will appear if you answered the question incorrectly."
-		},
-		"_partlyCorrect": {
-			"notFinal": "",
-			"final": "This feedback will appear if you answered part of the question correctly."
-		}
-	},
-	"_buttons": {
-		"submit": "",
-		"reset": "",
-		"showCorrectAnswer": "",
-		"hideCorrectAnswer": ""
-	},
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
+  "_id": "c-05",
+  "_parentId": "b-05",
+  "_type": "component",
+  "_component": "selectchoice",
+  "_classes": "",
+  "_layout": "full",
+  "title": "Select Choice",
+  "displayTitle": "Select Choice",
+  "body": "",
+  "instruction": "",
+  "_attempts": 1,
+  "_shouldDisplayAttempts": false,
+  "_shouldResetAllAnswers": false,
+  "_isRandom": false,
+  "_questionWeight": 1,
+  "_canShowModelAnswer": true,
+  "_canShowFeedback": true,
+  "_canShowMarking": true,
+  "_recordInteraction": true,
+  "_hasItemScoring": true,
+  "_choices": [
+    {
+      "text": "G1"
+    },
+
+    {
+      "text": "G2"
+    },
+    {
+      "text": "G3"
+    }
+  ],
+  "_items": [
+    {
+      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+      "_graphic": {
+        "alt": "",
+        "large": "",
+        "small": ""
+      },
+      "_shouldBeSelected": 1
+    },
+    {
+      "text": "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
+      "_graphic": {
+        "alt": "",
+        "large": "",
+        "small": ""
+      },
+      "_shouldBeSelected": 2
+    },
+    {
+      "text": "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+      "_graphic": {
+        "alt": "",
+        "large": "",
+        "small": ""
+      },
+      "_shouldBeSelected": 1
+    }
+  ],
+  "_feedback": {
+    "title": "Feedback",
+    "correct": "This feedback will appear if you answered the question correctly.",
+    "_incorrect": {
+      "notFinal": "",
+      "final": "This feedback will appear if you answered the question incorrectly."
+    },
+    "_partlyCorrect": {
+      "notFinal": "",
+      "final": "This feedback will appear if you answered part of the question correctly."
+    }
+  },
+  "_buttons": {
+    "_submit": {
+      "buttonText": "Submit",
+      "ariaLabel": "Select here to submit your answer."
+    },
+    "_reset": {
+      "buttonText": "Reset",
+      "ariaLabel": ""
+    },
+    "_showCorrectAnswer": {
+      "buttonText": "Correct Answer",
+      "ariaLabel": ""
+    },
+    "_hideCorrectAnswer": {
+      "buttonText": "My Answer",
+      "ariaLabel": ""
+    },
+    "_showFeedback": {
+      "buttonText": "Show feedback",
+      "ariaLabel": ""
+    },
+    "remainingAttemptsText": "attempts remaining",
+    "remainingAttemptText": "final attempt"
+  }
 }

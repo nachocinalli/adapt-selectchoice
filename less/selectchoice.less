@@ -1,172 +1,78 @@
-.selectchoice-component {
-    .selectchoice-head {
-        position: relative;
-        padding-left: 0;
+.selectchoice {
+    &__widget {
+      display: flex;
+      flex-direction: column;
+    }  
+    &__item-head  {
+      display: none;
+      font-weight: 700;
     }
-    .selectchoice-label {
-        padding-left: 5px;
-        text-transform: uppercase;
-        color: @primary-color;
-        font-weight: 600;
-        min-height: 20px;
-        float: none;
-        width: 100%;
-        text-align: center;
-        padding-top: 20px;
-        @media all and (min-width:(@device-width-medium + 1px)) {
-            float: left;
-            width: 70%;
-            text-align: left;
-            padding-left: 0;
-            text-transform: uppercase;
-            padding-top: 0;
+    &__item{
+      padding: 1rem;
+      margin-bottom: 0.25rem;
+      background-color: #DDDDDD;
+    }
+    &__item-text{
+      padding: .5rem .5rem .5rem 2rem;
+    }
+    &__item-choices {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      min-width: 6rem;   
+    }
+   
+    &__item-choice {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 .25rem;
+    }
+    &__item-choices input {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      z-index: -1;
+      .transform(translate(-50%, -50%));
+    }
+    &__item-choice-text{
+      text-align: center;
+    }
+    &__item-state{
+      position: absolute;
+      display: none;
+    }
+    &__item-icon .icon {
+      .icon-radio-unchecked;
+    }
+    &__item-icon.is-selected .icon {
+      .icon-radio-checked;
+    }
+    &__item-correct-icon .icon {
+      .icon-tick;
+    }
+  
+    &__item-incorrect-icon .icon {
+      .icon-cross;
+    }
+    &__widget.show-user-answer &__item-state {
+      display: block;
+    }
+    @media all and (min-width: (@device-width-medium + 1px)) {
+      &__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &__item:not(.selectchoice__item-head){
+        .selectchoice__item-choice-text{
+          display: none;
         }
+      }
     }
-    .first {
-        border: none !important;
-        background-color: transparent !important;
-    }
-    .selectchoice-option {
-        display: inline-block;
-        text-align: center;
-        min-width: 48px;
-        @media all and (min-width:(@device-width-medium + 1px)) {
-            padding-bottom: 5px;
-            padding-top: 5px;
-        }
-    }
-    .selectchoice-item {
-        position: relative;
-        padding-top: 20px;
-        padding-left: 0;
-        @media all and (min-width:(@device-width-medium + 1px)) {
-            padding-top: 0;
-        }
-    }
-    .selectchoice-option-inner {
-        width: 100%;
-        float: none;
-        display: block;
-        text-align: center;
-        @media all and (min-width:(@device-width-medium + 1px)) {
-            float: right;
-            width: 30%;
-        }
-    }
-    .selectchoice-item label {
-        position: relative;
-        color: @primary-color;
-        width: 100%;
-        float: none;
-        display: block;
-        z-index: 1;
-        overflow: hidden;
-        cursor: auto;
-        text-align: left;
-        @media all and (min-width:(@device-width-medium + 1px)) {
-            float: left;
-            width: 70%;
-            padding-bottom: 5px;
-            padding-top: 5px;
-            background-color: transparent;
-        }
-    }
-    .selectchoice-item-inner {
-        padding: 0;
-        padding-left: (@icon-size+(@item-padding-left*2));
-    }
-    .selectchoice-item-state {
-        background: none;
-        position: absolute;
-        left: 10px;
-        width: @icon-size;
-        height: @icon-size;
-        top: 50%;
-        margin-top: -(@icon-size/2);
-        z-index: 0;
-        .dir-rtl & {
-            left: inherit;
-            right: 10px;
-        }
-    }
-    .selectchoice-item input {
-        vertical-align: middle;
-    }
-    .selectchoice-correct-icon {
-        color: @icon-correct-color;
-        display: none;
-    }
-    .selectchoice-incorrect-icon {
-        color: @icon-incorrect-color;
-        display: none;
-    }
-    .selectchoice-widget {
-        &.show-user-answer {
-            .selectchoice-item-icon {
-                display: none;
-            }
-            .incorrect {
-                .selected .selectchoice-incorrect-icon {
-                    display: block;
-                }
-            }
-            .correct {
-                .selected .selectchoice-correct-icon {
-                    display: block;
-                }
-            }
-        }
-        &.show-correct-answer {
-            .selectchoice-item-icon {
-                display: none;
-            }
-            .selected .selectchoice-correct-icon {
-                display: block;
-            }
-        }
-        &.disabled {
-            .selectchoice-item label.selected.disabled {
-                color: #666;
-                border-color: transparent;
-            }
-            .selectchoice-item label.disabled {
-                color: #666;
-                border-color: transparent;
-            }
-            .selectchoice-item.correct .selected .state {
-                color: @icon-correct-color;
-            }
-            .selectchoice-item.incorrect .selected .state {
-                color: @icon-incorrect-color;
-            }
-        }
-    }
-    .buttons {
-        clear: both;
-        text-align: center;
-    }
-}
-.no-touch {
-    .selectchoice-component {
-        .selectchoice-widget {
-            &:not(.disabled) {
-                .selectchoice-item label:hover {
-                    color: @primary-color;
-                    background-color: transparent;
-                    border-color: transparent;
-                }
-                .selectchoice-item label.disabled {
-                    color: @primary-color;
-                    background-color: transparent;
-                    border-color: transparent;
-                    cursor: default;
-                    &:hover {
-                        color: @primary-color;
-                        background-color: transparent;
-                        border-color: transparent;
-                    }
-                }
-            }
-        }
-    }
-}
+  }
+  

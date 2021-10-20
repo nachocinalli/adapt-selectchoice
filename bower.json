@@ -1,18 +1,17 @@
 {
   "name": "adapt-selectchoice",
-  "version": "2.0.0",
-  "framework": "^2.0.11",
-  "homepage": "",
-  "authors": [
-    ""
-  ],
-  "displayName" : "Select Choice Question",
-  "component" : "selectchoice",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nachocinalli/adapt-selectchoice.git"
+  },
+  "framework": ">=5.17.2",
+  "version": "5.0.0",
+  "homepage": "https://github.com/nachocinalli/adapt-selectchoice",
+  "issues": "https://github.com/nachocinalli/adapt-selectchoice/issues",
+  "component": "selectchoice",
   "description": "A select choice question component",
   "main": "/js/adapt-selectchoice.js",
-  "keywords": [
-    "adapt-plugin",
-    "adapt-component"
-  ],
+  "displayName": "Select Choice Question",
+  "keywords": ["adapt-plugin", "adapt-component"],
   "license": "GPLv3"
 }

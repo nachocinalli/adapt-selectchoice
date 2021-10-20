@@ -1,5 +1,5 @@
 {
-  "type":"object",
+  "type": "object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "$ref": "http://localhost/plugins/content/component/model.schema",
@@ -7,13 +7,31 @@
     "ariaRegion": {
       "type": "string",
       "required": true,
-      "default": "This component is a select choice question.",
+      "default": "Selectchoice. Select from input options and then submit.",
       "inputType": "Text",
       "validators": [],
       "translatable": true
+    },
+    "ariaCorrectAnswer": {
+      "type": "string",
+      "required": true,
+      "default": "The correct answer for {{{itemText}}} is {{{correctAnswer}}}",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Text that will be announced by the screen reader when the learner selects the 'correct answer' button",
+      "translatable": true
+    },
+    "ariaUserAnswer": {
+      "type": "string",
+      "required": true,
+      "default": "The answer you chose for {{{itemText}}} was {{{userAnswer}}}",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Text that will be announced by the screen reader when the learner selects the 'hide correct answer' button",
+      "translatable": true
     }
   },
-  "properties":{
+  "properties": {
     "_supportedLayout": {
       "type": "string",
       "required": true,
@@ -31,98 +49,117 @@
       "translatable": true
     },
     "_choices": {
-      "type":"array",
-      "required":true,
+      "type": "array",
+      "required": true,
       "title": "Choices",
       "items": {
-        "type":"object",
-        "required":true,
-        "properties":{
+        "type": "object",
+        "required": true,
+        "properties": {
           "text": {
-            "type":"string",
-            "required":true,
+            "type": "string",
+            "required": true,
             "default": "",
             "title": "Item Text",
             "inputType": "Text",
             "validators": ["required"],
             "help": "This text will display as the item text"
-          },
-          "_value": {
-            "type":"number",
-            "required":true,
-            "default": 0,
-            "title": "Value",
-            "inputType": "Number",
-            "validators": [],
-            "help": "Set this item to '0' or '1'"
           }
         }
       }
     },
     "_items": {
-      "type":"array",
-      "required":true,
+      "type": "array",
+      "required": true,
       "title": "Items",
       "items": {
-        "type":"object",
-        "required":true,
-        "properties":{
+        "type": "object",
+        "required": true,
+        "properties": {
           "text": {
-            "type":"string",
-            "required":true,
+            "type": "string",
+            "required": false,
             "default": "",
             "title": "Item Text",
             "inputType": "Text",
-            "validators": ["required"],
+            "validators": [],
             "help": "This text will display as the item text",
             "translatable": true
+          },
+          "_graphic": {
+            "type": "object",
+            "required": false,
+            "title": "Graphic",
+            "properties": {
+              "large": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Large image for this item - used on desktop"
+              },
+              "small": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Small image for this item - used on mobiles"
+              },
+              "alt": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Text",
+                "validators": [],
+                "help": "A description of the image; required when it has meaning that must be conveyed to the learner. Avoid duplication if the item text already provides context and leave blank.",
+                "translatable": true
+              }
+            }
           },
           "_shouldBeSelected": {
             "type": "number",
             "required": true,
-            "default": 0,
+            "default": 1,
             "title": "Should Be Selected",
             "inputType": "Number",
             "validators": [],
-            "help": "Set this item to '0' or '1'"
-          },
-          "feedback": {
-            "type":"string",
-            "required":false,
-            "default": "",
-            "title": "Option Specific Feedback",
-            "inputType": "Text",
-            "validators": [],
-            "help": "This text will be displayed as feedback if there is only one selectable item for this component",
-            "translatable": true
+            "help": "Enter the number that corresponds with the option. Start count from 1"
           }
         }
       }
     },
     "_attempts": {
-      "type":"number",
-      "required":true,
-      "default":1,
+      "type": "number",
+      "required": true,
+      "default": 1,
       "title": "Attempts",
-      "inputType":"Number",
+      "inputType": "Number",
       "validators": ["required", "number"],
       "help": "How many attempts the learner is allowed"
     },
     "_canShowModelAnswer": {
-      "type":"boolean",
-      "required":true,
+      "type": "boolean",
+      "required": true,
       "default": true,
       "title": "Display Model Answer",
-      "inputType": {"type": "Boolean", "options": [true, false]},
+      "inputType": {
+        "type": "Boolean",
+        "options": [true, false]
+      },
       "validators": [],
       "help": "Select 'true' to allow the user to view the 'model answer' should they answer the question incorrectly"
     },
     "_canShowFeedback": {
-      "type":"boolean",
-      "required":true,
+      "type": "boolean",
+      "required": true,
       "default": true,
       "title": "Display Feedback",
-      "inputType": {"type": "Boolean", "options": [true, false]},
+      "inputType": {
+        "type": "Boolean",
+        "options": [true, false]
+      },
       "validators": [],
       "help": "Select 'true' to allow the user to view feedback on their answer"
     },
@@ -130,62 +167,66 @@
       "type": "boolean",
       "default": true,
       "title": "Display Marking",
-      "inputType": { "type": "Boolean", "options": [ true, false ] },
+      "inputType": {
+        "type": "Boolean",
+        "options": [true, false]
+      },
       "validators": [],
       "help": "Select 'true' to display ticks and crosses on question completion"
     },
     "_shouldDisplayAttempts": {
-      "type":"boolean",
-      "required":false,
+      "type": "boolean",
+      "required": false,
       "default": false,
       "title": "Display Attempts",
-      "inputType": {"type": "Boolean", "options": [true, false]},
+      "inputType": {
+        "type": "Boolean",
+        "options": [true, false]
+      },
       "validators": [],
       "help": "Select 'true' to display the numbers of attempts left"
     },
     "_isRandom": {
-      "type":"boolean",
-      "required":false,
+      "type": "boolean",
+      "required": false,
       "default": false,
       "title": "Randomised Items",
-      "inputType": {"type": "Boolean", "options": [true, false]},
+      "inputType": {
+        "type": "Boolean",
+        "options": [true, false]
+      },
       "validators": [],
       "help": "If set to 'true', all items will be randomised"
     },
     "_recordInteraction": {
-      "type":"boolean",
-      "required":false,
+      "type": "boolean",
+      "required": false,
       "default": true,
       "title": "Record interaction",
-      "inputType": {"type": "Boolean", "options": [true, false]},
+      "inputType": {
+        "type": "Boolean",
+        "options": [true, false]
+      },
       "validators": [],
       "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
     },
+
     "_questionWeight": {
-      "type":"number",
-      "required":false,
+      "type": "number",
+      "required": false,
       "default": 1,
       "title": "Question Weight",
       "inputType": "Number",
       "validators": ["number"],
       "help": "How much this question is worth"
     },
-    "_selectable": {
-      "type":"number",
-      "required":true,
-      "default": 1,
-      "title": "Selectable Items",
-      "inputType": "Number",
-      "validators": ["number", "required"],
-      "help": "How many items are selectable"
-    },
     "_feedback": {
-      "type":"object",
+      "type": "object",
       "required": false,
       "title": "Feedback",
-      "properties":{
+      "properties": {
         "correct": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "",
           "title": "Correct",
@@ -195,12 +236,12 @@
           "translatable": true
         },
         "_incorrect": {
-          "type":"object",
+          "type": "object",
           "required": false,
           "title": "Incorrect Feedback",
-          "properties":{
+          "properties": {
             "final": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "Incorrect Final",
@@ -210,7 +251,7 @@
               "translatable": true
             },
             "notFinal": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "Incorrect Not Final",
@@ -222,11 +263,11 @@
           }
         },
         "_partlyCorrect": {
-          "type":"object",
-          "required":false,
-          "properties":{
+          "type": "object",
+          "required": false,
+          "properties": {
             "final": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "Partly Correct Final",
@@ -236,7 +277,7 @@
               "translatable": true
             },
             "notFinal": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "Partly Correct Not Final",
@@ -250,16 +291,16 @@
       }
     },
     "_buttons": {
-      "type":"object",
+      "type": "object",
       "title": "Buttons",
       "required": false,
-      "properties":{
+      "properties": {
         "_submit": {
-          "type":"object",
+          "type": "object",
           "title": "Submit",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -269,7 +310,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -281,11 +322,11 @@
           }
         },
         "_reset": {
-          "type":"object",
+          "type": "object",
           "title": "Reset",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -295,7 +336,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -307,11 +348,11 @@
           }
         },
         "_showCorrectAnswer": {
-          "type":"object",
+          "type": "object",
           "title": "Show Correct Answer",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -321,7 +362,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -333,11 +374,11 @@
           }
         },
         "_hideCorrectAnswer": {
-          "type":"object",
+          "type": "object",
           "title": "Hide Correct Answer",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -347,7 +388,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -359,11 +400,11 @@
           }
         },
         "_showFeedback": {
-          "type":"object",
+          "type": "object",
           "title": "Show Feedback",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -373,7 +414,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -385,7 +426,7 @@
           }
         },
         "remainingAttemptsText": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "",
           "title": "Attempts Remaining Text",
@@ -395,7 +436,7 @@
           "translatable": true
         },
         "remainingAttemptText": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "",
           "title": "Final Attempt Text",
