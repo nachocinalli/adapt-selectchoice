@@ -21,14 +21,29 @@
   "_hasItemScoring": true,
   "_choices": [
     {
-      "text": "G1"
+      "text": "G1",
+      "_graphic": {
+        "alt": "",
+        "large": "",
+        "small": ""
+      }
     },
 
     {
-      "text": "G2"
+      "text": "G2",
+      "_graphic": {
+        "alt": "",
+        "large": "",
+        "small": ""
+      }
     },
     {
-      "text": "G3"
+      "text": "G3",
+      "_graphic": {
+        "alt": "",
+        "large": "",
+        "small": ""
+      }
     }
   ],
   "_items": [
