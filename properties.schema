@@ -64,6 +64,38 @@
             "inputType": "Text",
             "validators": ["required"],
             "help": "This text will display as the item text"
+          },
+          "_graphic": {
+            "type": "object",
+            "required": false,
+            "title": "Graphic",
+            "properties": {
+              "large": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Large image for this item - used on desktop"
+              },
+              "small": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Small image for this item - used on mobiles"
+              },
+              "alt": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Text",
+                "validators": [],
+                "help": "A description of the image; required when it has meaning that must be conveyed to the learner. Avoid duplication if the item text already provides context and leave blank.",
+                "translatable": true
+              }
+            }
           }
         }
       }

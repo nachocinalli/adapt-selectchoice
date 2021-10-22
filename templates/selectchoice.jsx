@@ -48,6 +48,12 @@ export default function SelectChoice(props) {
                   <div className='selectchoice__item-choice-text'>
                     {html(compile(option.text))}
                   </div>
+                  {option._graphic.large &&
+                    <templates.image {...option._graphic}
+                      classNamePrefixes={['selectchoice__item-choice']}
+                      attributionClassNamePrefixes={['component', 'selectchoice']}
+                    />
+                  }
                 </label>
               </div>
             ))}
@@ -94,7 +100,12 @@ export default function SelectChoice(props) {
                     <div className='selectchoice__item-choice-text'>
                       {html(compile(option.text))}
                     </div>
-
+                    {option._graphic.large &&
+                      <templates.image {...option._graphic}
+                        classNamePrefixes={['selectchoice__item-choice']}
+                        attributionClassNamePrefixes={['component', 'selectchoice']}
+                      />
+                    }
                     <div
                       className={classes([
                         'selectchoice__item-icon',

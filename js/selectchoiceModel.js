@@ -37,6 +37,7 @@ export default class SelectChoiceModel extends QuestionModel {
         item._options = this.get('_choices').map(choice => {
           return {
             text: choice.text,
+            _graphic: choice._graphic,
             _value: choice._value,
             _isCorrect: choice._value === item._shouldBeSelected
           };
