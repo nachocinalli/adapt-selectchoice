@@ -93,7 +93,7 @@ export default function SelectChoice(props) {
                 >
                   <label
                     aria-hidden={true}
-                    htmlFor={`input-${props._id}-${_index}-${option._value}`}
+                    htmlFor={`input-${_id}-${_index}-${option._value}`}
                     data-adapt-index={_index}
                   >
 
@@ -123,8 +123,8 @@ export default function SelectChoice(props) {
                   </label>
                   <input
                     type='radio'
-                    name={`choices-${props._id}-${_index}`}
-                    id={`input-${props._id}-${_index}-${option._value}`}
+                    name={`choices-${_id}-${_index}`}
+                    id={`input-${_id}-${_index}-${option._value}`}
                     value={option._value}
                     disabled={!_isEnabled}
                     aria-label={
