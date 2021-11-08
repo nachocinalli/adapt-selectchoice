@@ -31,7 +31,6 @@ class SelectChoiceView extends QuestionView {
     const $input = $(event.currentTarget);
     const itemIndex = $input.data('adapt-index');
     const optionIndex = parseInt($input.val());
-    console.log(itemIndex, '-', optionIndex);
     this.model.setOptionSelected(itemIndex, optionIndex, true);
     this.model.set('_highlighted', `${itemIndex}-${optionIndex}`);
 

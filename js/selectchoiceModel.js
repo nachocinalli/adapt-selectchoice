@@ -96,7 +96,6 @@ export default class SelectChoiceModel extends QuestionModel {
     const option = item._options.find(({ _index }) => _index === _optionIndex);
     option._isSelected = isSelected;
     item._selected = option;
-    console.log('item', item);
     this.checkCanSubmit();
   }
 
@@ -108,8 +107,7 @@ export default class SelectChoiceModel extends QuestionModel {
 
       userAnswer[item._index] = item._options[optionIndex]._value;
     });
-    console.log('userAnswer', userAnswer);
-
+    
     this.set({
       _userAnswer: userAnswer
     });
