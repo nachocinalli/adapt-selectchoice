@@ -36,12 +36,12 @@ class SelectChoiceView extends QuestionView {
 
   }
 
-  resetQuestionl() {
+  resetQuestion() {
     this.$('.selectchoice__item').removeClass('is-correct is-incorrect');
     this.model.set('_isAtLeastOneCorrectSelection', false);
 
     this.model.get('_items').forEach(item => {
-      if (item._isCorrect) return;
+     // if (item._isCorrect) return;
       item._options.forEach(option => (option._isSelected = false));
       item._selected = null;
     });
