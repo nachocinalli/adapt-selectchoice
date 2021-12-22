@@ -105,7 +105,7 @@ export default class SelectChoiceModel extends QuestionModel {
     this.get('_items').forEach(item => {
       const optionIndex = item._options.findIndex(({ _isSelected }) => _isSelected);
 
-      userAnswer[item._index] = item._options[optionIndex]._value;
+      userAnswer[item._index] = item._options[optionIndex]._value - 1;
     });
     
     this.set({
