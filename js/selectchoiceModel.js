@@ -234,7 +234,7 @@ export default class SelectChoiceModel extends QuestionModel {
       const key = answerArray[index];
       return Handlebars.compile(userAnswerTemplate)({
         itemText: item.text,
-        userAnswer: item._options[(key - 1)].text
+        userAnswer: item._options[(key)].text
       });
     }).join('<br>');
 
