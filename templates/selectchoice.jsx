@@ -76,7 +76,9 @@ export default function SelectChoice(props) {
                 _isInteractionComplete && !_isCorrect && 'selectchoice__item-incorrect-icon'
               ])}
             >
-              <div className='icon'></div>
+              {shouldShowMarking && (
+                <div className='icon'></div>
+              )}
             </div>
             <div className='selectchoice__item-text'>
               {html(compile(text))}
