@@ -138,7 +138,7 @@ export default function SelectChoice(props) {
                     }
                     data-adapt-index={_index}
                     onKeyPress={onKeyPress}
-                    onChange={onItemOptionSelect}
+                    onClick={onItemOptionSelect}
                   />
                 </div>
               ))}
