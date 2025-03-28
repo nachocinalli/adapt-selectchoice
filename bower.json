@@ -5,7 +5,7 @@
     "url": "git://github.com/nachocinalli/adapt-selectchoice.git"
   },
   "framework": ">=5.17.2",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "homepage": "https://github.com/nachocinalli/adapt-selectchoice",
   "issues": "https://github.com/nachocinalli/adapt-selectchoice/issues",
   "component": "selectchoice",
